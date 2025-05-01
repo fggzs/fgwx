@@ -55,7 +55,7 @@ async def list_plugins():
     """获取所有插件列表"""
     return PluginManager.get_plugins()
 
-    
+#ipad示例  
 if __name__ == "__main__":
     settings = QSettings("config.ini", QSettings.IniFormat)
     设备id =settings.value("DeviceID")
