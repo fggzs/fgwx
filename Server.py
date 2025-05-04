@@ -6,8 +6,6 @@ import time
 import base64
 from PySide6.QtCore import *
 import os
-from concurrent.futures import ThreadPoolExecutor
-thread_pool = ThreadPoolExecutor(max_workers=20)
 headers = {
     "accept": "application/json",
     "Content-Type": "application/json"
