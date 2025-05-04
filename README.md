@@ -21,8 +21,22 @@
 #### 安装教程
 
 exe为服务端，可选pc hook模式和ipad 协议模式
-启动exe后，运行示例中的main.py 可接收消息，处理消息等，
-可以自己自定义客户端，通过http接口，Server中定义http请求接口
+启动exe后，运行示例中的main.py 可接收消息，处理消息等
+示列中消息类型：
+        type (int): 消息类型
+        id (str): 消息 id
+        ts (int):时间戳
+        xml (str): 消息 xml 部分
+        sender (str): 消息发送人
+        roomid (str): （仅群消息有）群 id
+        content (str): 消息内容
+        thumb (str): 视频或图片消息的缩略图路径
+        extra (str): 视频或图片消息的路径
+        is_self(bool): 是否是自己发送的消息
+        is_group(bool):是否是群消息
+
+
+客户端示列可自定义，通过http接口，Server中定义http请求接口
 
 
 
