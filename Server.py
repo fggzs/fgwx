@@ -6,7 +6,8 @@ import time
 import base64
 from PySide6.QtCore import *
 import os
-
+from concurrent.futures import ThreadPoolExecutor
+thread_pool = ThreadPoolExecutor(max_workers=20)
 headers = {
     "accept": "application/json",
     "Content-Type": "application/json"
@@ -131,8 +132,11 @@ class Server:
     def 启动心跳检测(self,机器人id):
         while True:
             time.sleep(30)
-            if not self.wx心跳(机器人id):
-                os._exit(0)
+            if self.wx心跳(机器人id)== False:
+                if self.二次登录()['Success']:
+                    logger.info('二次登录成功')
+                else:
+                    os._exit(0)
             
 
     def 发送图片(self,path,receiver):
@@ -149,3 +153,39 @@ class Server:
         response = requests.post(url, headers=headers,data=data).json()
         logger.debug(response)
         return response
+    def 发送app消息(self,receiver,appmsg,Type=0):
+        url = self.interface_url +"/Msg/SendApp"
+        data = json.dumps({
+            "ToWxid": receiver,
+            "Type": Type,
+            "Wxid":self.机器人id,
+            "Xml": appmsg
+        })
+        response = requests.post(url, headers=headers,data=data).json()
+        logger.debug(response)
+        return response
+    def 发送图片(self,path,receiver):
+        """ 路径不能为中文 """
+        url = self.interface_url +"/Msg/UploadImg"
+        with open(path, 'rb') as f:
+            Base64 = base64.b64encode(f.read()).decode('utf-8')  
+        data = json.dumps({
+            "Base64": Base64,
+            "ToWxid": receiver,
+            "Wxid": self.机器人id
+            })
+        response = requests.post(url, headers=headers,data=data).json()
+        logger.debug(response)
+        return response
+    def 二次登录(self):
+        url = self.interface_url +"/Login/TwiceAutoAuth"
+        params = {
+            "wxid": self.机器人id
+        }
+        response = requests.post(url, headers=headers,params=params).json()
+        logger.debug(response)
+        return response
+
+if __name__ == "__main__":
+    server = Server()
+    server.二次登录()

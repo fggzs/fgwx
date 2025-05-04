@@ -1,5 +1,4 @@
-from pluginbase import *
-from Server import Server
+from utils.pluginbase import *
 import pyautogui
 
 class 系统设置(PluginBase):
@@ -13,7 +12,6 @@ class 系统设置(PluginBase):
             "block": False
         }
         self.enabled = True
-        self.server = Server()
     async def process(self, msg: Msg):
 
         if msg.type == 1:
@@ -24,7 +22,7 @@ class 系统设置(PluginBase):
         if '服务器运行图' in msg.content:
             screenshot = pyautogui.screenshot()  
             screenshot.save('D:\screenshot.png')
-            self.server.发送图片('D:\screenshot.png',msg.sender)
+            self.clinet.发送图片('D:\screenshot.png',msg.sender)
         return
     async def on_load(self):
         """插件加载时执行的逻辑"""
