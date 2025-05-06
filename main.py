@@ -23,11 +23,9 @@ async def msg_cb(msg: Msg = Body(description="微信消息")):
                 logger.info({'type':msg.type,'ts':msg.ts,'sender':msg.sender,'xml':msg.xml})
             elif msg.type == 1: #文本类型   
                 logger.info({'type':msg.type,'ts':msg.ts,'sender':msg.sender,'content':msg.content}) 
-                # await 系统设置(msg)
             else:
                 logger.info(msg)
 
-        # await 转发.转发自动跑(msg)
         plugin_manager = PluginManager()
         await plugin_manager.initialize() 
         result = await plugin_manager.process_message(msg)
@@ -53,6 +51,7 @@ def run():
     if not 设备id:
         设备id = str(uuid.uuid4()).replace("-", "")
         settings.setValue("DeviceID",设备id)
+        
     机器人id = settings.value("wxid")
     server = Server()#实例化
     if server.wx心跳(机器人id):
@@ -68,23 +67,6 @@ def run():
     uvicorn.run(app, host="127.0.0.1", port=8000)
     
 if __name__ == "__main__":
-    settings = QSettings("config.ini", QSettings.IniFormat)
-    设备id =settings.value("DeviceID")
-    if not 设备id:
-        设备id = str(uuid.uuid4()).replace("-", "")
-        settings.setValue("DeviceID",设备id)
-        
-    机器人id = settings.value("wxid")
-    server = Server()#实例化
-    if server.wx心跳(机器人id):
-        server.回调接口()
-    else:
-        机器人id = server.ipad登录(设备id)
-        if not 机器人id:
-            logger.error("登录失败")
-            os._exit(0)
-        #保存机器人id
-        settings.setValue("wxid",机器人id)
-    threading.Thread(target=server.启动心跳检测,args=(机器人id,)).start()
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    run()
+
     
