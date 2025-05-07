@@ -72,7 +72,8 @@ def run():
             os._exit(0)
         #保存机器人id
         settings.setValue("wxid",机器人id)
-    
+    threading.Thread(target=server.启动心跳检测,args=(机器人id,)).start()
+    uvicorn.run(app, host="127.0.0.1", port=8000)
 if __name__ == "__main__":
     run()
 
