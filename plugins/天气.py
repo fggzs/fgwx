@@ -3,7 +3,6 @@ import tomllib
 import aiohttp
 import jieba
 from loguru import logger
-from Server import Server
 from utils.pluginbase import *
 
 class 天气(PluginBase):
@@ -28,7 +27,6 @@ class 天气(PluginBase):
         城市名天气
         城市名 天气"""
         self.api_key = ''#自己的key
-        self.server= Server()
 
     async def process(self, msg: Msg):
         if "天气" not in msg.content or msg.is_group == False:
@@ -37,14 +35,14 @@ class 天气(PluginBase):
         command = list(jieba.cut(content))
 
         if len(command) == 1:
-            await self.server.发送文本("\n" + self.command_format,msg.roomid, msg.sender)
+            await self.clinet.发送文本("\n" + self.command_format,msg.roomid, msg.sender)
             return
         elif len(command) > 3:
             return
 
         # 配置密钥检查
         if not self.api_key:
-            await self.server.发送文本("\n你还没配置天气API密钥！",msg.roomid,  msg.sender)
+            await self.clinet.发送文本("\n你还没配置天气API密钥！",msg.roomid,  msg.sender)
             return
 
         command.remove("天气")
@@ -62,11 +60,11 @@ class 天气(PluginBase):
             await conn_ssl.close()
 
         if geoapi_json['code'] == '404':
-            self.server.发送文本( "\n⚠️查无此地！",msg.roomid, msg.sender)
+            self.clinet.发送文本( "\n⚠️查无此地！",msg.roomid, msg.sender)
             return
 
         elif geoapi_json['code'] != '200':
-            self.server.发送文本( f"\n⚠️请求失败\n{geoapi_json}",msg.roomid, msg.sender)
+            self.clinet.发送文本( f"\n⚠️请求失败\n{geoapi_json}",msg.roomid, msg.sender)
             return
 
         country = geoapi_json["location"][0]["country"]
