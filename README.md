@@ -25,9 +25,9 @@
 
 #### 安装教程
 
-exe为服务端，可选pc hook模式和ipad 协议模式。ipad模式直接启动即可无需wx版本
-启动exe后，运行示例中的main.py 可接收消息，处理消息等
-客户端示列可自定义，通过http接口，Server中定义http请求接口
+windows 启动 微信机器人.exe 然后点击启动iPad启动即可
+
+linux ./fgwx 
 
 ###### 消息类型
 
@@ -51,7 +51,7 @@ is_group(bool):是否是群消息
 
 ![输入图片说明](res/imgimage.png)
 
- [api文档](https://apifox.com/apidoc/shared/21bc7878-a69d-4c59-b5c5-7cc1f473a47f/289523515e0)
+ [api文档](https://apifox.com/apidoc/shared-405fca87-2af7-4cf2-9ab1-a248df2d8b02)
 
 #### 插件化
 
