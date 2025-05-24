@@ -9,7 +9,9 @@ from PySide6.QtCore import *
 from utils.pluginbase import *
 from loguru import logger
 from fastapi import Depends
-from Server import Server
+from Server import HttpClient
+import  time
+import webbrowser
 plugin_manager = None
 
 async def get_plugin_manager():
@@ -50,29 +52,34 @@ async def list_plugins():
 
 
 def run():
+    client = HttpClient()
     settings = QSettings("config.ini", QSettings.IniFormat)
-    #调度器初始化
-    settings.setValue("scheduler_started",False)
-    # checkPort(8000)
     设备id =settings.value("DeviceID")
-    if not 设备id:
-        设备id = str(uuid.uuid4()).replace("-", "")
+    if 设备id == None:
+        设备id = client.获取二维码('')['DeviceId']
         settings.setValue("DeviceID",设备id)
         
     机器人id = settings.value("wxid")
-    server = Server()#实例化
-
-    if server.wx心跳(机器人id):
-        server.二次登录()
-        server.回调接口()
+    if client.wx心跳(机器人id):
+        logger.info('心跳成功')
+        client.定时回调接口()
     else:
-        机器人id = server.ipad登录(设备id)
-        if not 机器人id:
-            logger.error("登录失败")
-            os._exit(0)
-        #保存机器人id
-        settings.setValue("wxid",机器人id)
-    threading.Thread(target=server.启动心跳检测,args=(机器人id,)).start()
+        获取登录 = client.获取二维码(设备id)
+        uuid = 获取登录['Data']['Uuid']
+        二维码 = 获取登录['Data']['QrUrl']
+        logger.info('二维码链接'+二维码)
+        webbrowser.open(二维码)
+        for _ in range(300):
+            if uuid == 0:
+                break
+            time.sleep(3)
+            机器人id = client.检测二维码(uuid)
+            if 机器人id:
+                logger.info('登录成功')
+                client.定时回调接口()#启动回调接口
+                client.开启自动心跳自动二次登录(机器人id)
+                settings.setValue("wxid",机器人id)
+                break
     uvicorn.run(app, host="127.0.0.1", port=8000)
 if __name__ == "__main__":
     run()
