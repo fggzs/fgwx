@@ -7,12 +7,25 @@ import threading
 from utils.plugin_manager import PluginManager
 from PySide6.QtCore import *
 from utils.pluginbase import *
-from loguru import logger
 from fastapi import Depends
-from Server import HttpClient
+from HttpClient import HttpClient
 import  time
 import webbrowser
 plugin_manager = None
+from loguru import logger
+import os,sys
+# TRACE: 最低级别的日志，用于非常详细的调试信息。在生产环境中通常不会使用。
+# DEBUG: 用于调试目的的详细输出。它通常包含有关代码执行状态和变量值的信息。
+# INFO: 提供一般的信息性消息，用于确认正常的程序执行流程。
+# SUCCESS: 表示成功的操作或任务完成的消息。
+# WARNING: 表示潜在问题或非致命错误的消息。程序可能会继续运行，但可能会导致一些意外结果。
+# ERROR: 表示可恢复的错误或异常情况的消息，可能会导致程序无法继续执行特定的功能。
+# CRITICAL: 表示严重错误或导致程序无法正常运行的消息。它可能表示失败的关键任务或系统崩溃。在这种级别下，通常需要紧急采取行动。
+os.makedirs("./logs",exist_ok=True)#如果没有就创建
+if sys.gettrace() is not None:
+    logger.add(f"./logs/log.log", rotation="10 MB", backtrace=True, diagnose=True, level="DEBUG", retention=5)
+else:
+    logger.add(f"./logs/log.log", rotation="10 MB", backtrace=True, diagnose=True, level="INFO", retention=5)
 
 async def get_plugin_manager():
     global plugin_manager
@@ -63,6 +76,7 @@ def run():
     if client.wx心跳(机器人id):
         logger.info('心跳成功')
         client.定时回调接口()
+        client.开启自动心跳自动二次登录()
     else:
         获取登录 = client.获取二维码(设备id)
         uuid = 获取登录['Data']['Uuid']
@@ -77,7 +91,7 @@ def run():
             if 机器人id:
                 logger.info('登录成功')
                 client.定时回调接口()#启动回调接口
-                client.开启自动心跳自动二次登录(机器人id)
+                client.开启自动心跳自动二次登录()
                 settings.setValue("wxid",机器人id)
                 break
     uvicorn.run(app, host="127.0.0.1", port=8000)

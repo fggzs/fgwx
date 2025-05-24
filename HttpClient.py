@@ -658,7 +658,7 @@ class HttpClient:
             return True
         return False
     
-    def 开启自动心跳自动二次登录(self, ):
+    def 开启自动心跳自动二次登录(self):
         url = self.interface_url + '/Login/AutoHeartBeat'
         params = {
             "Wxid": self.机器人id,
