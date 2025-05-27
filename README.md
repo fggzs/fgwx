@@ -38,7 +38,7 @@ redisConfig.Pass：Redis服务密码；
 mySqlConnectStr：用户名:密码@tcp(127.0.0.1:3306)/数据库名?charset=utf8mb4&parseTime=true&loc=Local；
 
 
-windows 启动 微信机器人.exe 然后点击启动iPad启动即可
+windows 启动 微信机器人.exe 然后点击启动即可
 
 linux ./fgwx 账号 密码
 
