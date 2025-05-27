@@ -55,7 +55,7 @@ is_group(bool):是否是群消息
 
 ![输入图片说明](res/imgimage.png)
 
- [api文档](https://apifox.com/apidoc/shared-405fca87-2af7-4cf2-9ab1-a248df2d8b02)
+ [api文档](https://apifox.com/apidoc/shared/f22b7809-e8a5-44fa-ab58-1c9fdc840e4f)
 
 #### 插件化
 
