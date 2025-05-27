@@ -924,13 +924,11 @@ class HttpClient:
         logger.debug(response)
         return response
 
-    def login_检测扫码状态(self, uuid_param):
+    def login_检测扫码状态(self):
         """登录-检测扫码状态"""
         url = self.interface_url + '/login/CheckLoginStatus'
         params = {}
         params['key'] = self.key
-        if uuid_param is not None:
-            params['uuid'] = uuid_param # Parameter named uuid_param to avoid conflict with query param 'key'
         response = requests.get(url, params=params, headers=headers).json()
         logger.debug(response)
         return response
@@ -980,7 +978,7 @@ class HttpClient:
         logger.debug(response)
         return response
 
-    def login_获取登录二维码异地IP用代理(self, Check, Proxy):
+    def login_获取登录二维码异地IP用代理(self, Check=False, Proxy=''):
         """登录-获取登录二维码(异地IP用代理 socks5://username:password@ipv4:port)"""
         url = self.interface_url + '/login/GetLoginQrCodeNew'
         params = {}

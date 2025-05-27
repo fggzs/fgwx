@@ -9,6 +9,7 @@ import traceback
 import os,sys
 from PySide6.QtCore import *
 from utils.plugin_manager import PluginManager
+import time
 # TRACE: 最低级别的日志，用于非常详细的调试信息。在生产环境中通常不会使用。
 # DEBUG: 用于调试目的的详细输出。它通常包含有关代码执行状态和变量值的信息。
 # INFO: 提供一般的信息性消息，用于确认正常的程序执行流程。
@@ -132,13 +133,23 @@ async def receive_messages(plugin_manager:PluginManager):
                     
     except:
         logger.error(traceback.format_exc())
-
+def 登录():
+    登录链接 = client.login_获取登录二维码异地IP用代理()['Data']['QrCodeUrl']
+    print(登录链接)
+    while True:
+        if client.login_检测扫码状态()['Data']['status'] == 2:
+            print("登录成功")
+            break
+        else:
+            print("登录中")
+        time.sleep(3)
 if __name__ == "__main__":
     settings = QSettings("config.ini", QSettings.IniFormat)
     api_url =settings.value("api_url")
     wxid = settings.value("wxid")
     key = settings.value("key")
     WS_URL = settings.value("WS_URL")
-
     client = HttpClient(wxid=wxid,api_url=api_url,key=key)
+    登录()
+    
     asyncio.get_event_loop().run_until_complete(receive_messages(PluginManager()))
