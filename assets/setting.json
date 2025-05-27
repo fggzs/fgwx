@@ -4,7 +4,7 @@
   "port": "9999",
   "apiVersion": "",
   "ghWxid": "fg87165164",
-  "adminKey": "fggzs",
+  "adminKey": "",
   "workerpoolsize": 500,
   "maxworkertasklen": 1000,
   "redisConfig": {
