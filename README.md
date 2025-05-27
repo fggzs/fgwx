@@ -27,6 +27,17 @@ mysql 5.7 以上
 Redis 7.0 以上
 先运行数据库 再启动程序
 
+setting.json其他字段不用修改
+
+debug：是否开启debug日志
+port：当前服务端口号
+adminKey：管理相关接口(例如GenAuthKey等接口)的授权KEY，若留空每次服务启动随机生成；
+redisConfig.Port：Redis服务端口号；
+redisConfig.Db：要使用的Redis几号数据库；
+redisConfig.Pass：Redis服务密码；
+mySqlConnectStr：用户名:密码@tcp(127.0.0.1:3306)/数据库名?charset=utf8mb4&parseTime=true&loc=Local；
+
+
 windows 启动 微信机器人.exe 然后点击启动iPad启动即可
 
 linux ./fgwx 账号 密码
