@@ -32,16 +32,8 @@
 </div>
 
 ##  📖 wx功能使用说明
+👉 <a href="https://apifox.com/apidoc/shared/f22b7809-e8a5-44fa-ab58-1c9fdc840e4f">API地址</a> 
 
-fgwx 提供了丰富的wx功能控制命令，包括：
-
-- **自动抢红包功能**：控制抢红包、设置延迟时间、过滤测试红包等
-- **消息防撤回**：查看被对方撤回的消息内容
-- **好友管理**：自动通过验证、添加好友后自动回复
-- **群管理命令**：踢人、拉黑、移出黑名单等操作
-- **朋友圈互动**：自动点赞朋友圈功能
-
----
 fgwx 是基于 WeChat Pad 协议的高级wx管理工具，支持以下功能：
 ### 🔧 MCP增强功能
 - ⚡ 多协议适配：自动识别并适配不同版本的wx协议
@@ -143,8 +135,6 @@ innodb_large_prefix = 1
 
 ### MySQL绿色版安装
 
-> 绿色版MySQL适用于所有OS系统；https://downloads.mysql.com/archives/community/；
->
 > `MySQL5.7`包括之后版本：[Windows安装绿色版Mysql数据库](https://blog.csdn.net/FL1623863129/article/details/138196075)；
 >
 > ```shell
