@@ -12,7 +12,7 @@
     "Port": 6379,
     "Db": 1,
     "User": "",
-    "Pass": "",
+    "Pass": "12345678",
     "MaxIdle": 10,
     "MaxActive": 20,
     "IdleTimeout": 5000,
