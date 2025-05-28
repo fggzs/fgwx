@@ -46,8 +46,9 @@ linux ./fgwx 账号 密码
 
 有问题加v：AAAxyy9反馈
 
-![输入图片说明](res/imgimage.png)
-
+![输入图片说明](res/%E7%99%BB%E5%BD%95image.png)
+![输入图片说明](res/1image.png)
+![输入图片说明](res/2image.png)
  [api文档](https://apifox.com/apidoc/shared/f22b7809-e8a5-44fa-ab58-1c9fdc840e4f)
 
 #### 插件化
