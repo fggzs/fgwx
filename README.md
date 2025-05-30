@@ -85,7 +85,7 @@ fgwx 适用于个人wx增强、运营管理和自动化交互，提升wx使用�
 >
 > 不会搭建家里的内网穿透 socks5 代理的可联系我搭建；
 >
-> frp：https://github.com/fatedier/frp/releases；
+> frp：https://blog.csdn.net/kaka_buka/article/details/136915149；
 
 
 
