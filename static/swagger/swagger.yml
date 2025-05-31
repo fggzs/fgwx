@@ -2426,6 +2426,22 @@ definitions:
         type: string
     title: UserRankLikeModel
     type: object
+  VerifyCodeModel:
+    properties:
+      code:
+        description: ' 验证码'
+        example: ""
+        type: string
+      data62:
+        description: ' 验证码'
+        example: ""
+        type: string
+      ticket:
+        description: ' 验证码'
+        example: ""
+        type: string
+    title: VerifyCodeModel
+    type: object
   VerifyUserItem:
     properties:
       Gh:
@@ -3983,6 +3999,24 @@ paths:
       summary: 短信登录
       tags:
       - 登录
+  /login/VerifyCode:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/VerifyCodeModel'
+      responses:
+        "200":
+          description: ""
+      summary: 验证码验证(输入iPad登录验证码)
+      tags:
+      - 登录
   /login/WakeUpLogin:
     post:
       parameters:
@@ -4727,6 +4761,397 @@ paths:
       summary: 创建红包
       tags:
       - 支付
+  /qy/QWAcceptChatRoom:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWAcceptChatRoomModel'
+      responses:
+        "200":
+          description: ""
+      summary: 同意进企业群
+      tags:
+      - 企业微信
+  /qy/QWAddChatRoomMember:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWAddChatRoomMemberModel'
+      responses:
+        "200":
+          description: ""
+      summary: 直接拉朋友进企业群
+      tags:
+      - 企业微信
+  /qy/QWAdminAcceptJoinChatRoomSet:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWAdminAcceptJoinChatRoomSetModel'
+      responses:
+        "200":
+          description: ""
+      summary: 设定企业群管理审核进群
+      tags:
+      - 企业微信
+  /qy/QWApplyAddContact:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWApplyAddContactModel'
+      responses:
+        "200":
+          description: ""
+      summary: 向企业微信打招呼
+      tags:
+      - 企业微信
+  /qy/QWAppointChatRoomAdmin:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWAddChatRoomMemberModel'
+      responses:
+        "200":
+          description: ""
+      summary: 增加企业管理员
+      tags:
+      - 企业微信
+  /qy/QWChatRoomAnnounce:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWModChatRoomNameModel'
+      responses:
+        "200":
+          description: ""
+      summary: 发布企业群公告
+      tags:
+      - 企业微信
+  /qy/QWChatRoomTransferOwner:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWChatRoomTransferOwnerModel'
+      responses:
+        "200":
+          description: ""
+      summary: 转让企业群
+      tags:
+      - 企业微信
+  /qy/QWContact:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWContactModel'
+      responses:
+        "200":
+          description: ""
+      summary: 提取企业 wx 详情
+      tags:
+      - 企业微信
+  /qy/QWCreateChatRoom:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWCreateModel'
+      responses:
+        "200":
+          description: ""
+      summary: 创建企业群
+      tags:
+      - 企业微信
+  /qy/QWDelChatRoom:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWModChatRoomNameModel'
+      responses:
+        "200":
+          description: ""
+      summary: 删除企业群
+      tags:
+      - 企业微信
+  /qy/QWDelChatRoomAdmin:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWAddChatRoomMemberModel'
+      responses:
+        "200":
+          description: ""
+      summary: 移除群管理员
+      tags:
+      - 企业微信
+  /qy/QWDelChatRoomMember:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWAddChatRoomMemberModel'
+      responses:
+        "200":
+          description: ""
+      summary: 删除企业群成员
+      tags:
+      - 企业微信
+  /qy/QWGetChatRoomMember:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWAddChatRoomMemberModel'
+      responses:
+        "200":
+          description: ""
+      summary: 提取企业群全部成员
+      tags:
+      - 企业微信
+  /qy/QWGetChatRoomQR:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWAddChatRoomMemberModel'
+      responses:
+        "200":
+          description: ""
+      summary: 提取企业群二维码
+      tags:
+      - 企业微信
+  /qy/QWGetChatroomInfo:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWAddChatRoomMemberModel'
+      responses:
+        "200":
+          description: ""
+      summary: 提取企业群名称公告设定等信息
+      tags:
+      - 企业微信
+  /qy/QWInviteChatRoomMember:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWAddChatRoomMemberModel'
+      responses:
+        "200":
+          description: ""
+      summary: 发送群邀请链接
+      tags:
+      - 企业微信
+  /qy/QWModChatRoomMemberNick:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWModChatRoomNameModel'
+      responses:
+        "200":
+          description: ""
+      summary: 修改成员在群中呢称
+      tags:
+      - 企业微信
+  /qy/QWModChatRoomName:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWModChatRoomNameModel'
+      responses:
+        "200":
+          description: ""
+      summary: 修改企业群名称
+      tags:
+      - 企业微信
+  /qy/QWRemark:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWRemarkModel'
+      responses:
+        "200":
+          description: ""
+      summary: 备注企业 wxid
+      tags:
+      - 企业微信
+  /qy/QWSearchContact:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/SearchContactModel'
+      responses:
+        "200":
+          description: ""
+      summary: 搜手机或企业对外名片链接提取验证
+      tags:
+      - 企业微信
+  /qy/QWSyncChatRoom:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      - description: 请求参数
+        in: body
+        name: body
+        schema:
+          $ref: '#/definitions/QWSyncChatRoomModel'
+      responses:
+        "200":
+          description: ""
+      summary: 提取全部企业微信群-
+      tags:
+      - 企业微信
+  /qy/QWSyncContact:
+    post:
+      parameters:
+      - description: 账号唯一标识
+        in: query
+        name: key
+        type: string
+      responses:
+        "200":
+          description: ""
+      summary: 提取全部的企业通讯录
+      tags:
+      - 企业微信
   /sns/CdnSnsVideoUpload:
     post:
       parameters:
@@ -5488,5 +5913,7 @@ tags:
   name: 收藏
 - description: /finder
   name: 视频号
+- description: /qy
+  name: 企业微信
 - description: /other
   name: 其他
