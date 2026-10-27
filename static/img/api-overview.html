@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>完整接口版 · 客户版</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #0b0e14;
+    color: #c9d1d9;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    font-family: "Segoe UI", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+    width: 1240px;
+  }
+  .page { padding: 26px 32px 18px; }
+  header {
+    display: flex; align-items: center; gap: 16px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid #1e2430;
+  }
+  .brand {
+    font-size: 27px; font-weight: 800; letter-spacing: 2px;
+    color: #e6edf3; font-family: ui-monospace, Consolas, monospace;
+  }
+  .divider { width: 1px; height: 26px; background: #262d3a; }
+  .title { font-size: 19px; font-weight: 600; color: #9aa4b2; letter-spacing: 1px; }
+  .count {
+    margin-left: auto; font-size: 13px; color: #c9d1d9;
+    border: 1px solid #303845; border-radius: 8px;
+    padding: 6px 14px; background: #141a22;
+  }
+  .subtitle { margin: 9px 0 0; font-size: 12px; color: #6e7681; }
+  .cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 34px;
+    margin-top: 14px;
+    align-items: start;
+  }
+  .group { margin-bottom: 14px; break-inside: avoid; }
+  .group h2 {
+    margin: 0 0 4px; font-size: 14px; font-weight: 700;
+    color: #9aa4b2; letter-spacing: 1px;
+    display: flex; align-items: baseline; gap: 7px;
+  }
+  .group h2 .n { font-size: 11.5px; font-weight: 500; color: #59616e; }
+  .row {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; padding: 2.5px 1px;
+    border-bottom: 1px dashed #161b24;
+    font-family: ui-monospace, Consolas, "Cascadia Mono", monospace;
+    font-size: 12.5px;
+  }
+  .route { color: #c3cddb; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .chips { display: flex; gap: 4px; flex: none; }
+  .chip {
+    font-size: 9.5px; line-height: 15px; letter-spacing: .3px;
+    color: #6f7a89; border: 1px solid #262e3b;
+    border-radius: 4px; padding: 0 5px; background: #10151c;
+  }
+  footer {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 14px; padding-top: 11px;
+    border-top: 1px solid #1e2430;
+    font-size: 11.5px; color: #5c6572;
+    font-family: ui-monospace, Consolas, monospace;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <span class="brand">WXHOOK</span>
+    <span class="divider"></span>
+    <span class="title">完整接口版 · 客户版</span>
+    <span class="count">121 个接口</span>
+  </header>
+  <p class="subtitle">Windows WeChat 4.1.15.56 · 本地 HTTP 接口 http://127.0.0.1:30001</p>
+  <div class="cols">
+  <div class="col">
+    <div class="group">
+      <h2>账号 <span class="n">6</span></h2>
+      <div class="row"><span class="route">/IsLoginStatus</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/getonlineinfo</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/GetSelfProfile</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetQRCode</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/GetGroupQRCode</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/SendQRCode</span><span class="chips"><span class="chip">POST</span></span></div>
+    </div>
+    <div class="group">
+      <h2>会话 <span class="n">1</span></h2>
+      <div class="row"><span class="route">/api/session</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+    </div>
+    <div class="group">
+      <h2>联系人 <span class="n">20</span></h2>
+      <div class="row"><span class="route">/SetContactRemark</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SearchContact</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetContact</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetFriendOrChatroomDetailInfo</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetContactList</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/BatchGetContactBriefInfo</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/QueryBodyInfo</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetContactLabelList</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetHeadIMG</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/CheckFriendStatus</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/api/contact/extra</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/AddFriend</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/DelFriend</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetContactLabelMap</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/GetLabelList</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/AddLabel</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/UpdateLabel</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/DelLabel</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SetContactLabels</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetContactLabels</span><span class="chips"><span class="chip">GET</span></span></div>
+    </div>
+    <div class="group">
+      <h2>群 <span class="n">14</span></h2>
+      <div class="row"><span class="route">/DelGroupMember</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/AddGroupMember</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SetGroupAnnouncement</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/CreateGroup</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/QuitGroup</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SetGroupName</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SetMyGroupNick</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/QueryChatRoomList</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/QueryChatRoomMemberCount</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/BatchGetChatRoomMemberWxid</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/QueryChatRoomMemberNickName</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/QueryChatRoomOwnerWxid</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetChatrooMmemberDetail</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetChatroomMemberDetailInfo</span><span class="chips"><span class="chip">POST</span></span></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="group">
+      <h2>消息 <span class="n">11</span></h2>
+      <div class="row"><span class="route">/api/message_cache</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/GetRevoked</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/SetCallback</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/Zstd</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/RecentMessages</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/MsgStats</span><span class="chips"><span class="chip">GET</span><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/Events</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/MsgImage</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/MsgQuote</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/MsgTypes</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/api/callog</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+    </div>
+    <div class="group">
+      <h2>发送 <span class="n">19</span></h2>
+      <div class="row"><span class="route">/SendVideoMsg</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/TestSend</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/ReplyRules</span><span class="chips"><span class="chip">GET</span><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/BotSwitch</span><span class="chips"><span class="chip">GET</span><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendTextMsg</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendTextMsg_NoSrc</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendAtMsg_NoSrc</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendImgMsg</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendImgMsg_NoSrc</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/ForwardXMLMsg</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/ForwardMsg</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/SendLinkCard</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/Forward</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendFileFromMessage</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendXml</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendVoice</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendVoiceFromAudio</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendGuard</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/SendPat</span><span class="chips"><span class="chip">POST</span></span></div>
+    </div>
+    <div class="group">
+      <h2>朋友圈 <span class="n">15</span></h2>
+      <div class="row"><span class="route">/SnsUserPageSync</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/SnsObjectDetail</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/SnsComment</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/SnsObjectOp</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/SnsStickyOnTop</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SnsTopList</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/SnsMedia</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/TimelineGetFristPage</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/TimelineGetNextPage</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/mmsnsuserpage</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/GetFriendTimeline</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/get_moments</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/get_friend_moments</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/api/sns/extra</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/PublishMoments</span><span class="chips"><span class="chip">POST</span></span></div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="group">
+      <h2>媒体/文件 <span class="n">16</span></h2>
+      <div class="row"><span class="route">/AttachFile</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/RevokedFile</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/MsgMedia</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/CdnMedia</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/DownloadFile</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/SendCdnMedia</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/ForwardMedia</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/api/media</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/Decode_Pic</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/FindImageKey</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/download</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/downloadbigfile</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/DownloadVoice</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/VoiceData</span><span class="chips"><span class="chip">GET</span><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/VoiceInfo</span><span class="chips"><span class="chip">GET</span><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/RevokedImage</span><span class="chips"><span class="chip">GET</span></span></div>
+    </div>
+    <div class="group">
+      <h2>收藏 <span class="n">2</span></h2>
+      <div class="row"><span class="route">/GetFavList</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/Batchgetfavitem</span><span class="chips"><span class="chip">POST</span></span></div>
+    </div>
+    <div class="group">
+      <h2>支付/红包 <span class="n">2</span></h2>
+      <div class="row"><span class="route">/api/payment</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/PaymentStats</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+    </div>
+    <div class="group">
+      <h2>系统/诊断 <span class="n">14</span></h2>
+      <div class="row"><span class="route">/AdminGate</span><span class="chips"><span class="chip">GET</span><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/GetPushOptions</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/NotifyStats</span><span class="chips"><span class="chip">GET</span><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/api/db</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/QueryDB/execute</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/QueryDB/GetAllDBName</span><span class="chips"><span class="chip">POST</span></span></div>
+      <div class="row"><span class="route">/QueryDB/status</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/WxLayout</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/FaultLog</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/AntiRevokeHook</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/AntiRevokeRecipe</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/WxApi/Routes</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/WxApi/Catalog</span><span class="chips"><span class="chip">GET</span></span></div>
+      <div class="row"><span class="route">/</span><span class="chips"><span class="chip">GET</span></span></div>
+    </div>
+    <div class="group">
+      <h2>其他 <span class="n">1</span></h2>
+      <div class="row"><span class="route">/api/other</span><span class="chips"><span class="chip">POST</span><span class="chip">GET</span></span></div>
+    </div>
+  </div>
+  </div>
+  <footer>
+    <span>版本：客户版（自用版 125 条，客户版可见 121 条）</span>
+    <span>以 /WxApi/Catalog 的实时输出为准</span>
+  </footer>
+</div>
+</body>
+</html>
