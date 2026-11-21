@@ -3,7 +3,7 @@
 <div align="center">
     <h3>🚀 基于 WeChat PC Hook 的高级微信管理工具 🚀</h3>
     <p align="center">
-        <img src="https://img.shields.io/badge/WeChat-4.1.15.56-brightgreen?style=for-the-badge" alt="WeChat">
+        <img src="https://img.shields.io/badge/WeChat-4.2.0.13-brightgreen?style=for-the-badge" alt="WeChat">
         <img src="https://img.shields.io/badge/API-121%20routes-blue?style=for-the-badge" alt="API">
         <img src="https://img.shields.io/badge/Port-127.0.0.1%3A30001-orange?style=for-the-badge" alt="Port">
         <img src="https://img.shields.io/badge/Platform-Windows-lightgrey?style=for-the-badge" alt="Platform">
@@ -46,7 +46,7 @@
 - **不需要** 修改微信本体的任何文件，卸载就是删目录
 - 登录窗口关掉**不影响使用**；微信重启后需要再双击一次
 
-> 适用微信 PC 版：**4.1.15.56**（4.1.15.53 也兼容，其他版本一定失败）
+> 适用微信 PC 版：**4.2.0.13**（其他版本一定失败；微信 4.1.15.56 请用上一版发布包）
 
 ---
 
@@ -54,7 +54,7 @@
 
 ### 1. 核对微信版本（不看这步，后面全是白费）
 
-微信 → 左下角 **三条横线** → **设置** → **关于微信**，版本号必须是 `4.1.15.56`。
+微信 → 左下角 **三条横线** → **设置** → **关于微信**，版本号必须是 `4.2.0.13`。
 高了降级、低了升级，必须对齐；差一个补丁号微信会直接崩溃。
 
 ### 2. 先登录微信，再运行程序
